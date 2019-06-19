@@ -9,6 +9,22 @@ class BinarySearchTree {
         this.right = null;
     }
 
+    bfs(values=[]) {
+        const queue = new Queue(); // Assuming a Queue is implemented (refer to previous lesson on Queue)
+        while (queue.length) {
+            const node = queue.dequeue(); //remove from the queue
+            values.push(node.value); // add that value from the queue to an array
+            if (node.left) {
+                queue.enqueue(node.left); //add left child to the queue
+            }
+
+            if (node.right) {
+                queue.enqueue(node.right); // add right child to the queue
+            }
+        }
+        return values;
+    }
+
     linearSearch(array, value) {
 
         for (let i = 0; i < array.length; i++) {
@@ -61,25 +77,6 @@ class BinarySearchTree {
         if (this.right) {
             values = this.right.dfs(values);
         }
-        return values;
-    }
-
-    bfs(values = []) {
-        const queue = new Queue(); // Assuming a Queue is implemented (refer to previous lesson on Queue)
-
-        while (queue.length) {
-            const node = queue.dequeue(); //remove from the queue
-            values.push(node.value); // add that value from the queue to an array
-
-            if (node.left) {
-                queue.enqueue(node.left); //add left child to the queue
-            }
-
-            if (node.right) {
-                queue.enqueue(node.right); // add right child to the queue
-            }
-        }
-
         return values;
     }
 }

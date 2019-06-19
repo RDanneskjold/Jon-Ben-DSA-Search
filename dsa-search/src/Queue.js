@@ -36,12 +36,12 @@ class Queue {
         return node.value;
     }
 
-    peek(q) {
-        return q.first.value;
+    peek() {
+        return this.first.value;
     }
 
-    isEmpty(q) {
-        if (q.first === null) {
+    isEmpty() {
+        if (this.first === null) {
             return true;
         }
         return false;
