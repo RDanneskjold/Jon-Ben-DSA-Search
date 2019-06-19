@@ -7,7 +7,7 @@ class BinarySearchTree {
         this.parent = parent;
         this.left = null;
         this.right = null;
-        this.root = null;
+        
     }
 
     bfs(values=[]) {
@@ -35,7 +35,7 @@ class BinarySearchTree {
         if (this.key === null) {
             this.key = key;
             this.value = value;
-            this.root = this.key;
+           
         }
 
         /* If the tree already exists, then start at the root, 
