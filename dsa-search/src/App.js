@@ -4,7 +4,23 @@ import './App.css';
 const search = require('./Search');
 const tree = require('./BinarySearchTree');
 
+function profit(arr) {
+  let bestBuy = arr[0];
+  let bestProfit = 0;
 
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] - bestBuy > bestProfit) {
+      bestProfit = arr[i] - bestBuy;
+    }
+
+    if (arr[i] < bestBuy) {
+      bestBuy = arr[i];
+    }
+  }
+
+  return bestProfit;
+}
 
 function App() {
   const bst = new search();
@@ -37,6 +53,10 @@ function App() {
   BST.insert(90, 90);
   BST.insert(22, 22);
   
+
+  
+
+
   return(
     <>
       
@@ -51,6 +71,8 @@ function App() {
       {BST.postOrder()}
       <br />
       {BST.bfs()}
+      <br />
+      {profit([128, 97, 121, 123, 90, 97, 105])}
     </>
   );
 }
